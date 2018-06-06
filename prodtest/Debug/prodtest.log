@@ -1,0 +1,31 @@
+﻿生成启动时间为 2018/6/7 7:37:57。
+     1>项目“D:\DOCO\prod_test_cmds\prod_test_cmds\prodtest\prodtest.vcxproj”在节点 2 上(Rebuild 个目标)。
+       项目文件包含 ToolsVersion="14.0"。此工具集可能未知或缺失。在这种情况下，通过安装 MSBuild 的正确版本，或许可以解决此问题。否则，该 build 可能已因策略原因而被强制为某个特定 ToolsVersion。将该项目视为其已具有 ToolsVersion="4.0"。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=291333。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D DEVELOPMENT_MESSAGES /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TC /analyze- /errorReport:prompt commands.c getopt.c host_hci.c main.c queue.c uart.c
+         uart.c
+         queue.c
+         main.c
+         host_hci.c
+         getopt.c
+         commands.c
+     1>d:\doco\prod_test_cmds\prod_test_cmds\prodtest\commands.c(123): warning C4101: “tmp”: 未引用的局部变量
+     1>d:\doco\prod_test_cmds\prod_test_cmds\prodtest\commands.c(2717): warning C4293: “<<”: Shift 计数为负或过大，其行为未定义
+     1>d:\doco\prod_test_cmds\prod_test_cmds\prodtest\commands.c(2718): warning C4293: “<<”: Shift 计数为负或过大，其行为未定义
+     1>d:\doco\prod_test_cmds\prod_test_cmds\prodtest\commands.c(2719): warning C4293: “<<”: Shift 计数为负或过大，其行为未定义
+     1>d:\doco\prod_test_cmds\prod_test_cmds\prodtest\commands.c(2720): warning C4293: “<<”: Shift 计数为负或过大，其行为未定义
+     1>d:\doco\prod_test_cmds\prod_test_cmds\prodtest\commands.c(2721): warning C4293: “<<”: Shift 计数为负或过大，其行为未定义
+         正在生成代码...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\DOCO\prod_test_cmds\prod_test_cmds\Debug\prodtest.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\DOCO\prod_test_cmds\prod_test_cmds\Debug\prodtest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\DOCO\prod_test_cmds\prod_test_cmds\Debug\prodtest.lib" /MACHINE:X86 Debug\commands.obj
+         Debug\getopt.obj
+         Debug\host_hci.obj
+         Debug\main.obj
+         Debug\queue.obj
+         Debug\uart.obj
+         prodtest.vcxproj -> D:\DOCO\prod_test_cmds\prod_test_cmds\Debug\prodtest.exe
+     1>已完成生成项目“D:\DOCO\prod_test_cmds\prod_test_cmds\prodtest\prodtest.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:02.63
