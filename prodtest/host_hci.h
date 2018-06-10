@@ -81,6 +81,7 @@ typedef struct {
 
 #define CMD__REGISTER_RW_OP_READ_PSN   (6)
 #define CMD__REGISTER_RW_OP_WRITE_PSN  (7)
+/*doco lixiping fix for ticket/1 20180607 begin*/
 #define CMD__REGISTER_RW_OP_READ_MAC  (8)
 #define CMD__REGISTER_RW_OP_GO_SLEEP  (9)
 #define CMD__REGISTER_RW_OP_READ_VBAT  (10)
@@ -88,7 +89,7 @@ typedef struct {
 #define CMD__REGISTER_RW_OP_WRITE_BPSENSER_ZERO  (12)
 #define CMD__REGISTER_RW_OP_WRITE_FPSENSER_WORK  (13)
 #define CMD__REGISTER_RW_OP_WRITE_BPSENSER_WORK  (14)
-
+/*doco lixiping fix for ticket/1 20180607 end*/
 hci_evt_t *hci_recv_event_wait(unsigned int millis);
 void handle_hci_event( hci_evt_t * evt);
 
@@ -136,12 +137,15 @@ bool __stdcall hci_dialog_read_flag(uint32_t reg_addr);
 
 bool __stdcall hci_dialog_write_PSN(uint32_t reg_addr, char* value);
 bool __stdcall hci_dialog_read_PSN(uint32_t reg_addr);
+/*doco lixiping fix for ticket/1 20180607 begin*/
 bool __stdcall hci_dialog_read_MAC(uint32_t reg_addr);
 bool __stdcall hci_dialog_go_sleep(uint32_t reg_addr);
 bool __stdcall hci_dialog_read_vbat(uint32_t reg_addr);
-bool __stdcall hci_dialog_write_fpsenser_zero(uint32_t reg_addr, char* value);
-bool __stdcall hci_dialog_write_bpsenser_zero(uint32_t reg_addr, char* value);
-bool __stdcall hci_dialog_write_fpsenser_work(uint32_t reg_addr, char* value);
-bool __stdcall hci_dialog_write_bpsenser_work(uint32_t reg_addr, char* value);
+bool __stdcall hci_dialog_write_fpsenser_zero(uint32_t reg_addr);
+bool __stdcall hci_dialog_write_bpsenser_zero(uint32_t reg_addr);
+bool __stdcall hci_dialog_write_fpsenser_work(uint32_t reg_addr);
+bool __stdcall hci_dialog_write_bpsenser_work(uint32_t reg_addr);
+/*doco lixiping fix for ticket/1 20180607 end*/
+
 
 #endif //_HOST_HCI_H_

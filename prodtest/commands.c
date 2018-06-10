@@ -3064,7 +3064,7 @@ exit_command_handler:
 
 	return return_status;
 }
-
+/*doco lixiping fix for ticket/1 20180607 begin*/
 int read_MAC_cmd_handler(int argc, char **argv)
 {
 	uint32_t register_address = 0;
@@ -3296,21 +3296,19 @@ exit_command_handler:
 int write_fpsenser_zeor_handler(int argc, char **argv)   // write_fpsenser_zeor_handler
 {
 	uint32_t register_address = 0;
-	uint16_t value = 0;
 	uint16_t returned_value = 0;
 	int return_status = 0;
 	hci_evt_t *evt = NULL;
-	char buffer_senser[512] = "";
+
 	// check number of arguments
-	if ( !(argc == 2) )
+	if ( !(argc == 1) )
 	{
 		return_status = SC_WRONG_NUMBER_OF_ARGUMENTS;
 		goto exit_command_handler;
 	}
 
 	// parse register address
-	/*
-	register_address = parse_hex_uint32(&return_status, argv[1]);
+/*	register_address = parse_hex_uint32(&return_status, argv[1]);
 	if (return_status != 0
 		|| (register_address % 2 !=0) // address must be word aligned
 		)
@@ -3319,14 +3317,6 @@ int write_fpsenser_zeor_handler(int argc, char **argv)   // write_fpsenser_zeor_
 		goto exit_command_handler;
 	}
 	*/
-	// parse value to be written
-	value = parsse_hex_SN(&return_status, argv[1],buffer_senser);
-	if (return_status != 0)
-	{
-		return_status = SC_INVALID_REGISTER_VALUE_ARG;
-		goto exit_command_handler;
-	}
-
 	//
 	// execute ..
 	//
@@ -3341,7 +3331,7 @@ int write_fpsenser_zeor_handler(int argc, char **argv)   // write_fpsenser_zeor_
 	}
 
 	// send HCI command
-	hci_dialog_write_fpsenser_zero(register_address, buffer_senser);
+	hci_dialog_write_fpsenser_zero(register_address);
 
 	// receive reply event
 	evt = hci_recv_event_wait(RX_TIMEOUT_MILLIS); // wait for RX_TIMEOUT_MILLIS milliseconds
@@ -3365,14 +3355,16 @@ int write_fpsenser_zeor_handler(int argc, char **argv)   // write_fpsenser_zeor_
 		goto exit_command_handler;
 	}
 
-	// return parameters
-	// none
+	// return parameters;
+	//returned_value = evt->parameters[5]
+	//| (evt->parameters[6] <<  8);
 
 exit_command_handler:
 	if(evt)
 		free(evt);
 
 	printf("status = %d\n", return_status);
+	printf("value  = %04X \n", returned_value);
 
 	return return_status;
 }
@@ -3380,21 +3372,19 @@ exit_command_handler:
 int write_bpsenser_zero_handler(int argc, char **argv) //write_bpsenser_zero_handler
 {
 	uint32_t register_address = 0;
-	uint16_t value = 0;
 	uint16_t returned_value = 0;
 	int return_status = 0;
 	hci_evt_t *evt = NULL;
-	char buffer_senser[512] = "";
+
 	// check number of arguments
-	if ( !(argc == 2) )
+	if ( !(argc == 1) )
 	{
 		return_status = SC_WRONG_NUMBER_OF_ARGUMENTS;
 		goto exit_command_handler;
 	}
 
 	// parse register address
-	/*
-	register_address = parse_hex_uint32(&return_status, argv[1]);
+/*	register_address = parse_hex_uint32(&return_status, argv[1]);
 	if (return_status != 0
 		|| (register_address % 2 !=0) // address must be word aligned
 		)
@@ -3403,14 +3393,6 @@ int write_bpsenser_zero_handler(int argc, char **argv) //write_bpsenser_zero_han
 		goto exit_command_handler;
 	}
 	*/
-	// parse value to be written
-	value = parsse_hex_SN(&return_status, argv[1],buffer_senser);
-	if (return_status != 0)
-	{
-		return_status = SC_INVALID_REGISTER_VALUE_ARG;
-		goto exit_command_handler;
-	}
-
 	//
 	// execute ..
 	//
@@ -3425,7 +3407,7 @@ int write_bpsenser_zero_handler(int argc, char **argv) //write_bpsenser_zero_han
 	}
 
 	// send HCI command
-	hci_dialog_write_bpsenser_zero(register_address, buffer_senser);
+	hci_dialog_write_bpsenser_zero(register_address);
 
 	// receive reply event
 	evt = hci_recv_event_wait(RX_TIMEOUT_MILLIS); // wait for RX_TIMEOUT_MILLIS milliseconds
@@ -3449,35 +3431,35 @@ int write_bpsenser_zero_handler(int argc, char **argv) //write_bpsenser_zero_han
 		goto exit_command_handler;
 	}
 
-	// return parameters
-	// none
+	// return parameters;
+	//returned_value = evt->parameters[5]
+	//| (evt->parameters[6] <<  8);
 
 exit_command_handler:
 	if(evt)
 		free(evt);
 
 	printf("status = %d\n", return_status);
+	printf("value  = %04X \n", returned_value);
 
 	return return_status;
 }
 int write_fpsenser_work_handler(int argc, char **argv) //write_fpsenser_work_handler
 {
 	uint32_t register_address = 0;
-	uint16_t value = 0;
 	uint16_t returned_value = 0;
 	int return_status = 0;
 	hci_evt_t *evt = NULL;
-	char buffer_senser[512] = "";
+
 	// check number of arguments
-	if ( !(argc == 2) )
+	if ( !(argc == 1) )
 	{
 		return_status = SC_WRONG_NUMBER_OF_ARGUMENTS;
 		goto exit_command_handler;
 	}
 
 	// parse register address
-	/*
-	register_address = parse_hex_uint32(&return_status, argv[1]);
+/*	register_address = parse_hex_uint32(&return_status, argv[1]);
 	if (return_status != 0
 		|| (register_address % 2 !=0) // address must be word aligned
 		)
@@ -3486,14 +3468,6 @@ int write_fpsenser_work_handler(int argc, char **argv) //write_fpsenser_work_han
 		goto exit_command_handler;
 	}
 	*/
-	// parse value to be written
-	value = parsse_hex_SN(&return_status, argv[1],buffer_senser);
-	if (return_status != 0)
-	{
-		return_status = SC_INVALID_REGISTER_VALUE_ARG;
-		goto exit_command_handler;
-	}
-
 	//
 	// execute ..
 	//
@@ -3508,7 +3482,7 @@ int write_fpsenser_work_handler(int argc, char **argv) //write_fpsenser_work_han
 	}
 
 	// send HCI command
-	hci_dialog_write_fpsenser_work(register_address, buffer_senser);
+	hci_dialog_write_fpsenser_work(register_address);
 
 	// receive reply event
 	evt = hci_recv_event_wait(RX_TIMEOUT_MILLIS); // wait for RX_TIMEOUT_MILLIS milliseconds
@@ -3532,14 +3506,16 @@ int write_fpsenser_work_handler(int argc, char **argv) //write_fpsenser_work_han
 		goto exit_command_handler;
 	}
 
-	// return parameters
-	// none
+	// return parameters;
+	//returned_value = evt->parameters[5]
+	//| (evt->parameters[6] <<  8);
 
 exit_command_handler:
 	if(evt)
 		free(evt);
 
 	printf("status = %d\n", return_status);
+	printf("value  = %04X \n", returned_value);
 
 	return return_status;
 }
@@ -3547,21 +3523,19 @@ exit_command_handler:
 int write_bpsenser_work_handler(int argc, char **argv) //write_bpsenser_work_handler
 {
 	uint32_t register_address = 0;
-	uint16_t value = 0;
 	uint16_t returned_value = 0;
 	int return_status = 0;
 	hci_evt_t *evt = NULL;
-	char buffer_senser[512] = "";
+
 	// check number of arguments
-	if ( !(argc == 2) )
+	if ( !(argc == 1) )
 	{
 		return_status = SC_WRONG_NUMBER_OF_ARGUMENTS;
 		goto exit_command_handler;
 	}
 
 	// parse register address
-	/*
-	register_address = parse_hex_uint32(&return_status, argv[1]);
+/*	register_address = parse_hex_uint32(&return_status, argv[1]);
 	if (return_status != 0
 		|| (register_address % 2 !=0) // address must be word aligned
 		)
@@ -3570,14 +3544,6 @@ int write_bpsenser_work_handler(int argc, char **argv) //write_bpsenser_work_han
 		goto exit_command_handler;
 	}
 	*/
-	// parse value to be written
-	value = parsse_hex_SN(&return_status, argv[1],buffer_senser);
-	if (return_status != 0)
-	{
-		return_status = SC_INVALID_REGISTER_VALUE_ARG;
-		goto exit_command_handler;
-	}
-
 	//
 	// execute ..
 	//
@@ -3592,7 +3558,7 @@ int write_bpsenser_work_handler(int argc, char **argv) //write_bpsenser_work_han
 	}
 
 	// send HCI command
-	hci_dialog_write_bpsenser_work(register_address, buffer_senser);
+	hci_dialog_write_bpsenser_work(register_address);
 
 	// receive reply event
 	evt = hci_recv_event_wait(RX_TIMEOUT_MILLIS); // wait for RX_TIMEOUT_MILLIS milliseconds
@@ -3616,14 +3582,18 @@ int write_bpsenser_work_handler(int argc, char **argv) //write_bpsenser_work_han
 		goto exit_command_handler;
 	}
 
-	// return parameters
-	// none
+	// return parameters;
+	//returned_value = evt->parameters[5]
+	//| (evt->parameters[6] <<  8);
 
 exit_command_handler:
 	if(evt)
 		free(evt);
 
 	printf("status = %d\n", return_status);
+	printf("value  = %04X \n", returned_value);
 
 	return return_status;
 }
+/*doco lixiping fix for ticket/1 20180607 end*/
+

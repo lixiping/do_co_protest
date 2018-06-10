@@ -45,14 +45,15 @@
 #define CMD__WRITE_REG32                  "write_reg32"
 #define CMD__READ_REG16                   "read_reg16"
 #define CMD__WRITE_REG16                  "write_reg16"
-#define CMD__WRITE_SN					  "write_sn"
-#define CMD__READ_SN					  "read_sn"
-#define CMD__WRITE_SWVERSION		      "write_swversion"
-#define CMD__READ_SWVERSION				  "read_swversion"
-#define CMD__WRITE_FLAG					  "write_flag"
-#define CMD__READ_FLAG					  "read_flag"
-#define CMD__WRITE_PSN					  "write_psn"
-#define CMD__READ_PSN					  "read_psn"
+#define CMD__WRITE_SN					  "write_SN"
+#define CMD__READ_SN					  "read_SN"
+#define CMD__WRITE_SWVERSION				"write_swversion"
+#define CMD__READ_SWVERSION					"read_swversion"
+#define CMD__WRITE_FLAG					"write_flag"
+#define CMD__READ_FLAG					"read_flag"
+#define CMD__WRITE_PSN					  "write_PSN"
+#define CMD__READ_PSN					  "read_PSN"
+/*doco lixiping fix for ticket/1 20180607 begin*/
 #define CMD__READ_MAC					  "read_mac"
 #define CMD__GO_SLEEP					  "go_sleep"
 #define CMD__READ_VBAT					  "read_vbat"
@@ -60,7 +61,7 @@
 #define CMD__WRITE_BPSENSER_ZERO		  "write_bpsenser_zero"
 #define CMD__WRITE_FPSENSER_WORK		  "write_fpsenser_work"
 #define CMD__WRITE_BPSENSER_WORK		  "write_bpsenser_work"
-
+/*doco lixiping fix for ticket/1 20180607 end*/
 typedef int (*cmd_handler_t) (int argc, char **argv);
 
 typedef struct {
@@ -96,6 +97,7 @@ cmd_t cmd_table[] = {
     { CMD__WRITE_REG16                  , write_reg16_cmd_handler},
 	{ CMD__WRITE_SN						, write_SN_cmd_handler},
 	{ CMD__READ_SN						, read_SN_cmd_handler},
+	/*doco lixiping fix for ticket/1 20180607 begin*/
 	{ CMD__WRITE_SWVERSION				, write_swversion_cmd_handler},
 	{ CMD__READ_SWVERSION				, read_swversion_cmd_handler},
 	{ CMD__WRITE_FLAG					, write_flag_cmd_handler},
@@ -109,6 +111,7 @@ cmd_t cmd_table[] = {
 	{ CMD__WRITE_BPSENSER_ZERO			, write_bpsenser_zero_handler},
 	{ CMD__WRITE_FPSENSER_WORK			, write_fpsenser_work_handler},
 	{ CMD__WRITE_BPSENSER_WORK			, write_bpsenser_work_handler},
+	/*doco lixiping fix for ticket/1 20180607 end*/
 
     { "",0}
 };

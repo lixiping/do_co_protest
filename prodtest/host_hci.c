@@ -753,6 +753,7 @@ bool __stdcall hci_dialog_read_PSN(uint32_t reg_addr)
 
 	return(true);
 }
+/*doco lixiping fix for ticket/1 20180607 begin*/
 bool __stdcall hci_dialog_read_MAC(uint32_t reg_addr)
 {
 	hci_cmd_t *cmd = (hci_cmd_t *) alloc_hci_command (HCI_CUSTOM_ACTION_CMD_OPCODE, 1);
@@ -783,171 +784,43 @@ bool __stdcall hci_dialog_read_vbat(uint32_t reg_addr)
 
 	return(true);
 }
-bool __stdcall hci_dialog_write_fpsenser_zero(uint32_t reg_addr, char* value)
+bool __stdcall hci_dialog_write_fpsenser_zero(uint32_t reg_addr)
 {
 	hci_cmd_t *cmd = (hci_cmd_t *) alloc_hci_command (HCI_CUSTOM_ACTION_CMD_OPCODE, 30);
 
 	cmd->parameters[0] = CMD__REGISTER_RW_OP_WRITE_FPSENSER_ZERO;
-
-	cmd->parameters[1] = value[0] ; 
-	cmd->parameters[2] = value[1] ;
-	cmd->parameters[3] = value[2] ;
-	cmd->parameters[4] = value[3] ;
-	cmd->parameters[5] = value[4] ;   
-	cmd->parameters[6] = value[5] ;
-	cmd->parameters[7] = value[6] ;
-	cmd->parameters[8] = value[7] ;
-	
-	cmd->parameters[9] = value[8] ; 
-	cmd->parameters[10] = value[9] ;
-	cmd->parameters[11] = value[10] ;
-	cmd->parameters[12] = value[11] ;
-	cmd->parameters[13] = value[12] ;
-	cmd->parameters[14] = value[13] ;
-	cmd->parameters[15] = value[14] ;
-	cmd->parameters[16] = 0 ;
-	cmd->parameters[17] = 0 ;
-	cmd->parameters[18] = 0 ;
-	cmd->parameters[19] = 0 ;
-	cmd->parameters[20] = 0 ;
-	cmd->parameters[21] = 0 ;
-	cmd->parameters[22] = 0 ;
-	cmd->parameters[23] = 0 ;
-	cmd->parameters[24] = 0 ;
-	cmd->parameters[25] = 0 ;
-	cmd->parameters[26] = 0 ;
-	cmd->parameters[27] = 0 ;
-	cmd->parameters[28] = 0 ;
-	cmd->parameters[29] = 0 ;
-	cmd->parameters[30] = 0 ;
-
 	send_hci_command(cmd);
 
 	return(true);
 }
-bool __stdcall hci_dialog_write_bpsenser_zero(uint32_t reg_addr, char* value)
+bool __stdcall hci_dialog_write_bpsenser_zero(uint32_t reg_addr)
 {
 	hci_cmd_t *cmd = (hci_cmd_t *) alloc_hci_command (HCI_CUSTOM_ACTION_CMD_OPCODE, 30);
 
 	cmd->parameters[0] = CMD__REGISTER_RW_OP_WRITE_BPSENSER_ZERO;
-
-	cmd->parameters[1] = value[0] ; 
-	cmd->parameters[2] = value[1] ;
-	cmd->parameters[3] = value[2] ;
-	cmd->parameters[4] = value[3] ;
-	cmd->parameters[5] = value[4] ;   
-	cmd->parameters[6] = value[5] ;
-	cmd->parameters[7] = value[6] ;
-	cmd->parameters[8] = value[7] ;
-	
-	cmd->parameters[9] = value[8] ; 
-	cmd->parameters[10] = value[9] ;
-	cmd->parameters[11] = value[10] ;
-	cmd->parameters[12] = value[11] ;
-	cmd->parameters[13] = value[12] ;
-	cmd->parameters[14] = value[13] ;
-	cmd->parameters[15] = value[14] ;
-	cmd->parameters[16] = 0 ;
-	cmd->parameters[17] = 0 ;
-	cmd->parameters[18] = 0 ;
-	cmd->parameters[19] = 0 ;
-	cmd->parameters[20] = 0 ;
-	cmd->parameters[21] = 0 ;
-	cmd->parameters[22] = 0 ;
-	cmd->parameters[23] = 0 ;
-	cmd->parameters[24] = 0 ;
-	cmd->parameters[25] = 0 ;
-	cmd->parameters[26] = 0 ;
-	cmd->parameters[27] = 0 ;
-	cmd->parameters[28] = 0 ;
-	cmd->parameters[29] = 0 ;
-	cmd->parameters[30] = 0 ;
-
 	send_hci_command(cmd);
 
 	return(true);
 }
-bool __stdcall hci_dialog_write_fpsenser_work(uint32_t reg_addr, char* value)
+bool __stdcall hci_dialog_write_fpsenser_work(uint32_t reg_addr)
 {
 	hci_cmd_t *cmd = (hci_cmd_t *) alloc_hci_command (HCI_CUSTOM_ACTION_CMD_OPCODE, 30);
 
 	cmd->parameters[0] = CMD__REGISTER_RW_OP_WRITE_FPSENSER_WORK;
 
-	cmd->parameters[1] = value[0] ; 
-	cmd->parameters[2] = value[1] ;
-	cmd->parameters[3] = value[2] ;
-	cmd->parameters[4] = value[3] ;
-	cmd->parameters[5] = value[4] ;   
-	cmd->parameters[6] = value[5] ;
-	cmd->parameters[7] = value[6] ;
-	cmd->parameters[8] = value[7] ;
-	
-	cmd->parameters[9] = value[8] ; 
-	cmd->parameters[10] = value[9] ;
-	cmd->parameters[11] = value[10] ;
-	cmd->parameters[12] = value[11] ;
-	cmd->parameters[13] = value[12] ;
-	cmd->parameters[14] = value[13] ;
-	cmd->parameters[15] = value[14] ;
-	cmd->parameters[16] = 0 ;
-	cmd->parameters[17] = 0 ;
-	cmd->parameters[18] = 0 ;
-	cmd->parameters[19] = 0 ;
-	cmd->parameters[20] = 0 ;
-	cmd->parameters[21] = 0 ;
-	cmd->parameters[22] = 0 ;
-	cmd->parameters[23] = 0 ;
-	cmd->parameters[24] = 0 ;
-	cmd->parameters[25] = 0 ;
-	cmd->parameters[26] = 0 ;
-	cmd->parameters[27] = 0 ;
-	cmd->parameters[28] = 0 ;
-	cmd->parameters[29] = 0 ;
-	cmd->parameters[30] = 0 ;
 
 	send_hci_command(cmd);
 
 	return(true);
 }
-bool __stdcall hci_dialog_write_bpsenser_work(uint32_t reg_addr, char* value)
+bool __stdcall hci_dialog_write_bpsenser_work(uint32_t reg_addr )
 {
 	hci_cmd_t *cmd = (hci_cmd_t *) alloc_hci_command (HCI_CUSTOM_ACTION_CMD_OPCODE, 30);
 
 	cmd->parameters[0] = CMD__REGISTER_RW_OP_WRITE_BPSENSER_WORK;
 
-	cmd->parameters[1] = value[0] ; 
-	cmd->parameters[2] = value[1] ;
-	cmd->parameters[3] = value[2] ;
-	cmd->parameters[4] = value[3] ;
-	cmd->parameters[5] = value[4] ;   
-	cmd->parameters[6] = value[5] ;
-	cmd->parameters[7] = value[6] ;
-	cmd->parameters[8] = value[7] ;
-	
-	cmd->parameters[9] = value[8] ; 
-	cmd->parameters[10] = value[9] ;
-	cmd->parameters[11] = value[10] ;
-	cmd->parameters[12] = value[11] ;
-	cmd->parameters[13] = value[12] ;
-	cmd->parameters[14] = value[13] ;
-	cmd->parameters[15] = value[14] ;
-	cmd->parameters[16] = 0 ;
-	cmd->parameters[17] = 0 ;
-	cmd->parameters[18] = 0 ;
-	cmd->parameters[19] = 0 ;
-	cmd->parameters[20] = 0 ;
-	cmd->parameters[21] = 0 ;
-	cmd->parameters[22] = 0 ;
-	cmd->parameters[23] = 0 ;
-	cmd->parameters[24] = 0 ;
-	cmd->parameters[25] = 0 ;
-	cmd->parameters[26] = 0 ;
-	cmd->parameters[27] = 0 ;
-	cmd->parameters[28] = 0 ;
-	cmd->parameters[29] = 0 ;
-	cmd->parameters[30] = 0 ;
-
 	send_hci_command(cmd);
 
 	return(true);
 }
+/*doco lixiping fix for ticket/1 20180607 end*/

@@ -90,6 +90,7 @@ int read_flag_cmd_handler(int argc, char **argv);
 
 int write_PSN_cmd_handler(int argc, char **argv);
 int read_PSN_cmd_handler(int argc, char **argv);
+/*doco lixiping fix for ticket/1 20180607 begin*/
 int read_MAC_cmd_handler(int argc, char **argv);
 int go_sleep_cmd_handler(int argc, char **argv);
 int read_vbat_cmd_handler(int argc, char **argv);
@@ -97,7 +98,7 @@ int write_fpsenser_zeor_handler(int argc, char **argv);
 int write_bpsenser_zero_handler(int argc, char **argv);
 int write_fpsenser_work_handler(int argc, char **argv);
 int write_bpsenser_work_handler(int argc, char **argv);
-
+/*doco lixiping fix for ticket/1 20180607 end*/
 /* utils*/
 long parse_number(int *return_status, const char * str);
 
